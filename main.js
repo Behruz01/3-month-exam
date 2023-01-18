@@ -22,7 +22,6 @@ function renderPostId(postArray, p) {
 renderPostId(data, elSelect);
 
 // for render post
-
 const renderPosts = (array, element = elList) => {
   element.innerHTML = "";
 
@@ -35,12 +34,13 @@ const renderPosts = (array, element = elList) => {
     newLi.appendChild(newCard);
     newCard.innerHTML = `
     <div class="card-body">
+                <p class="parag text-center">Post ID: ${post.postId}</p>
                 <h2 class="card-title">${post.name}</h2>
                 <p class="card-text">
                   ${post.body}
                 </p>
                 <a href="#" class="text-decoration-none">${post.email}</a>
-                <button data-id="${post.id}" class="btn btn-danger delete-btn d-block mt-3"> Delete </button>
+                <button data-id="${post.id}" class="btn btn-outline-danger delete-btn d-block mt-3"> Delete </button>
               </div>
               `;
     element.appendChild(newLi);
@@ -80,5 +80,24 @@ elList.addEventListener("click", (evt) => {
     });
     data = newPost;
     renderPosts(data);
+  }
+});
+
+// for filtered post
+elSelect.addEventListener("change", () => {
+  const opt = elSelect.value;
+
+  let filteredPost = [];
+
+  if (opt == "All") {
+    renderPosts(data);
+  } else {
+    for (let i = 0; i < data.length; i++) {
+      const element = data[i];
+      if (element.postId == opt) {
+        filteredPost.push(element);
+      }
+    }
+    renderPosts(filteredPost);
   }
 });
