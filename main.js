@@ -1,5 +1,6 @@
 const elSelect = document.querySelector("#select");
 const elList = document.querySelector("#list");
+const elSearch = document.querySelector("#search");
 
 // for select option
 function renderPostId(postArray, p) {
@@ -21,15 +22,6 @@ function renderPostId(postArray, p) {
 renderPostId(data, elSelect);
 
 // for render post
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 const renderPosts = (array, element = elList) => {
   element.innerHTML = "";
@@ -53,4 +45,20 @@ const renderPosts = (array, element = elList) => {
     element.appendChild(newLi);
   });
 };
+renderPosts(data);
+
+// search
+elSearch.addEventListener("input", (i) => {
+  let element = i.target;
+
+  let array = [];
+
+  data.forEach(function (post) {
+    if (post.name.toLowerCase().includes(element.value.toLowerCase())) {
+      array.push(post);
+    }
+  });
+
+  renderPosts(array);
+});
 renderPosts(data);
