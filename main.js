@@ -40,6 +40,7 @@ const renderPosts = (array, element = elList) => {
                   ${post.body}
                 </p>
                 <a href="#" class="text-decoration-none">${post.email}</a>
+                <button data-id="${post.id}" class="btn btn-danger delete-btn d-block mt-3"> Delete </button>
               </div>
               `;
     element.appendChild(newLi);
@@ -62,3 +63,22 @@ elSearch.addEventListener("input", (i) => {
   renderPosts(array);
 });
 renderPosts(data);
+
+// for delete button
+elList.addEventListener("click", (evt) => {
+  const target = evt.target;
+  console.log(target);
+
+  if (target.className.includes("delete-btn")) {
+    let newPost = [];
+    const id = Number(target.dataset.id);
+
+    data.forEach((post) => {
+      if (post.id !== id) {
+        newPost.push(post);
+      }
+    });
+    data = newPost;
+    renderPosts(data);
+  }
+});

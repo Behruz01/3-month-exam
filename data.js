@@ -1,4 +1,4 @@
-const data = [
+let data = [
   {
     postId: 1,
     id: 1,
