@@ -27,14 +27,14 @@ const renderPosts = (array, element = elList) => {
 
   array.forEach((post) => {
     const newLi = document.createElement("li");
-    newLi.className = "col-3";
+    newLi.className = "col-3 mb-3";
     const newCard = document.createElement("div");
     newCard.className = "card";
 
     newLi.appendChild(newCard);
     newCard.innerHTML = `
-    <div class="card-body">
-                <p class="parag text-center">Post ID: ${post.postId}</p>
+    <div class="card-body flex-column justify-content-between shadow p-4" style="min-height: 550px">
+                <p class="parag text-center">Post ID:${post.postId}</p>
                 <h2 class="card-title">${post.name}</h2>
                 <p class="card-text">
                   ${post.body}
