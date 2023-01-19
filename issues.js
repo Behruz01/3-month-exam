@@ -1,4 +1,4 @@
-// Kabisa
+// Kabisa year
 // function forYear(num) {
 //   if ((num % 4 === 0 && num % 100 !== 0) || num % 400 == 0) {
 //     return `${num}-kabisa yili`;
@@ -20,22 +20,32 @@
 //   }
 // }
 // calculate(array);
-let num1 = 123454321;
-let num2 = 345645;
-let num3 = 987789;
-let num4 = 555555;
-let num5 = 852258;
-let num6 = 15951;
 
-function palindromNum(number) {
-  let newArray = [];
-  newArray = String(number).split("").reverse();
-  let b = Number(newArray.join(""));
-  console.log(number);
-  if (number == b) {
-    return "Palindrom son";
-  } else {
-    return "Palindrom son emas";
+// Palindrom
+// function palindromNum(number) {
+//   let newArray = [];
+//   newArray = String(number).split("").reverse();
+//   let b = Number(newArray.join(""));
+//   if (number == b) {
+//     return `${number} palindrom son`;
+//   } else {
+//     return `${number} Palindrom son emas`;
+//   }
+// }
+// console.log(palindromNum(121));
+
+// first issues
+function maxLetter(word) {
+  const array = word.split("");
+  console.log(array);
+  let max = array[0];
+  for (let i = 0; i < array.length; i++) {
+    if (max == array[i]) {
+      max = array[i];
+    }
   }
+  return max;
 }
-console.log("bu", palindromNum(num1));
+
+word = "ssalsmu";
+console.log(maxLetter(word));
